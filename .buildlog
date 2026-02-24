@@ -5,3 +5,4 @@
 2026-02-22T21:04:25 handle empty input edge case
 2026-02-23T21:59:36 wire internal state machine
 2026-02-23T22:20:29 add dataclass contracts
+2026-02-24T10:23:26 extract result type
