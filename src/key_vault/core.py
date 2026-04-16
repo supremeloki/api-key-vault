@@ -34,3 +34,5 @@ API_KEY_PATTERNS: tuple[re.Pattern[str], ...] = (
 @dataclass(frozen=True)
 class KeyEntry:
     service: str
+    masked_value: str
+    fingerprint: str
