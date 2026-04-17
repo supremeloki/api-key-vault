@@ -36,3 +36,5 @@ class KeyEntry:
     service: str
     masked_value: str
     fingerprint: str
+    stored_at: float
+    last_used_at: float | None = None

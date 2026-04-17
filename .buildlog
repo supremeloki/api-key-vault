@@ -16,3 +16,4 @@
 2026-03-04T17:31:04 add dataclass contracts pt2
 2026-04-15T17:05:26 wire internal state machine pt2
 2026-04-16T20:22:24 extract result type pt2
+2026-04-17T22:48:24 harden validation paths pt2
