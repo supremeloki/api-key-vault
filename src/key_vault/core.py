@@ -38,3 +38,5 @@ class KeyEntry:
     fingerprint: str
     stored_at: float
     last_used_at: float | None = None
+    use_count: int = 0
+
