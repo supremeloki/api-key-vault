@@ -40,3 +40,5 @@ class KeyEntry:
     last_used_at: float | None = None
     use_count: int = 0
 
+    @property
+    def is_fingerprinted(self) -> bool:
