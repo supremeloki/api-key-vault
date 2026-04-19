@@ -42,3 +42,5 @@ class KeyEntry:
 
     @property
     def is_fingerprinted(self) -> bool:
+        return len(self.fingerprint) == 16
+
