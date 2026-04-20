@@ -44,3 +44,5 @@ class KeyEntry:
     def is_fingerprinted(self) -> bool:
         return len(self.fingerprint) == 16
 
+
+def mask_key(value: str) -> str:
