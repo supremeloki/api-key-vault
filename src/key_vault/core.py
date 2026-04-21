@@ -48,3 +48,5 @@ class KeyEntry:
 def mask_key(value: str) -> str:
     if len(value) <= 8:
         return "*" * len(value)
+    return f"{value[:4]}{'*' * 12}{value[-4:]}"
+
