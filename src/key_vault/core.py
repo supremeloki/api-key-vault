@@ -50,3 +50,5 @@ def mask_key(value: str) -> str:
         return "*" * len(value)
     return f"{value[:4]}{'*' * 12}{value[-4:]}"
 
+
+def fingerprint_key(value: str) -> str:
