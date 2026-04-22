@@ -52,3 +52,6 @@ def mask_key(value: str) -> str:
 
 
 def fingerprint_key(value: str) -> str:
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()[:16]
+
+
