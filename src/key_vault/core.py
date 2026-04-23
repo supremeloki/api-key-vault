@@ -55,3 +55,5 @@ def fingerprint_key(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()[:16]
 
 
+def looks_like_api_key(value: str) -> bool:
+    if not value or " " in value:
