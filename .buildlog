@@ -27,3 +27,4 @@
 2026-04-22T22:14:50 introduce typed error hierarchy pt2
 2026-04-23T20:52:36 refactor module boundaries pt2
 2026-04-23T21:55:43 extract result type pt2
+2026-04-24T21:05:19 expose metrics hooks
