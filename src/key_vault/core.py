@@ -61,3 +61,5 @@ def looks_like_api_key(value: str) -> bool:
     return any(pattern.match(value) for pattern in API_KEY_PATTERNS)
 
 
+@dataclass
+class VaultFile:
