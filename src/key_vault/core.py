@@ -63,3 +63,5 @@ def looks_like_api_key(value: str) -> bool:
 
 @dataclass
 class VaultFile:
+    version: int = 1
+    entries: dict[str, dict] = field(default_factory=dict)
