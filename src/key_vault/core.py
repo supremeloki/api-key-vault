@@ -67,3 +67,5 @@ class VaultFile:
     entries: dict[str, dict] = field(default_factory=dict)
 
     @classmethod
+    def load(cls, path: Path) -> "VaultFile":
+        if not path.exists():

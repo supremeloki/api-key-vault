@@ -31,3 +31,4 @@
 2026-04-24T23:46:23 support multiple sources
 2026-04-25T09:30:02 extend public api surface
 2026-04-26T21:25:15 implement cache layer
+2026-04-27T11:25:58 support config overrides
