@@ -69,3 +69,5 @@ class VaultFile:
     @classmethod
     def load(cls, path: Path) -> "VaultFile":
         if not path.exists():
+            return cls()
+        payload = json.loads(path.read_text(encoding="utf-8"))
