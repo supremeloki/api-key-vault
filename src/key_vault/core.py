@@ -73,3 +73,5 @@ class VaultFile:
         payload = json.loads(path.read_text(encoding="utf-8"))
         vault = cls(version=payload.get("version", 1))
         vault.entries = {
+            service: dict(data)
+            for service, data in payload.get("entries", {}).items()

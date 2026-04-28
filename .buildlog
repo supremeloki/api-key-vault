@@ -34,3 +34,4 @@
 2026-04-27T11:25:58 support config overrides
 2026-04-27T18:55:37 wire async handlers
 2026-04-28T17:31:58 add streaming path
+2026-04-28T18:02:41 add cli entrypoint
