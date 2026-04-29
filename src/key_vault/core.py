@@ -75,3 +75,6 @@ class VaultFile:
         vault.entries = {
             service: dict(data)
             for service, data in payload.get("entries", {}).items()
+        }
+        return vault
+
