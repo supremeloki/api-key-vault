@@ -80,3 +80,5 @@ class VaultFile:
 
     def save(self, path: Path) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
+        payload = json.dumps(
+            {"version": self.version, "entries": self.entries}, indent=2,
