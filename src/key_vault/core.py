@@ -82,3 +82,5 @@ class VaultFile:
         path.parent.mkdir(parents=True, exist_ok=True)
         payload = json.dumps(
             {"version": self.version, "entries": self.entries}, indent=2,
+        )
+        path.write_text(payload, encoding="utf-8")
