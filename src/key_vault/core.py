@@ -86,3 +86,5 @@ class VaultFile:
         path.write_text(payload, encoding="utf-8")
         try:
             path.chmod(0o600)
+        except OSError:
+            pass
