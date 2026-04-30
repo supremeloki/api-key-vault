@@ -84,3 +84,5 @@ class VaultFile:
             {"version": self.version, "entries": self.entries}, indent=2,
         )
         path.write_text(payload, encoding="utf-8")
+        try:
+            path.chmod(0o600)
