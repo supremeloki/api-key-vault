@@ -88,3 +88,5 @@ class VaultFile:
             path.chmod(0o600)
         except OSError:
             pass
+
+
