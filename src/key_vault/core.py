@@ -90,3 +90,5 @@ class VaultFile:
             pass
 
 
+class KeyVault:
+    def __init__(self, store_path: Path,
