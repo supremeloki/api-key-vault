@@ -96,3 +96,5 @@ class KeyVault:
                  env_prefix: str = "VAULT_KEY_") -> None:
         self._path = store_path
         self._clock = clock or time.time
+        self._env_prefix = env_prefix
+        self._secrets: dict[str, str] = {}
