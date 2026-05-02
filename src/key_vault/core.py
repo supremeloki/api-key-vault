@@ -94,3 +94,5 @@ class KeyVault:
     def __init__(self, store_path: Path,
                  clock: Callable[[], float] | None = None,
                  env_prefix: str = "VAULT_KEY_") -> None:
+        self._path = store_path
+        self._clock = clock or time.time
