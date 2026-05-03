@@ -98,3 +98,6 @@ class KeyVault:
         self._clock = clock or time.time
         self._env_prefix = env_prefix
         self._secrets: dict[str, str] = {}
+        self._vault_file = VaultFile.load(store_path)
+
+    def set(self, service: str, value: str) -> KeyEntry:
