@@ -101,3 +101,5 @@ class KeyVault:
         self._vault_file = VaultFile.load(store_path)
 
     def set(self, service: str, value: str) -> KeyEntry:
+        if not service.strip() or not value.strip():
+            raise KeyInvalidError(f"{service!r}: empty service or key")
