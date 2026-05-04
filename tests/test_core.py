@@ -74,3 +74,5 @@ def test_empty_values_rejected(vault):
     with pytest.raises(KeyInvalidError):
         vault.set("openai", "   ")
     with pytest.raises(KeyInvalidError):
+        vault.set("  ", "sk-something")
+
