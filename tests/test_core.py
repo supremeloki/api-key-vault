@@ -79,3 +79,4 @@ def test_empty_values_rejected(vault):
 
 def test_usage_tracked(vault):
     vault.set("deepseek", "sk-" + "z" * 30)
+    vault.get("deepseek")
