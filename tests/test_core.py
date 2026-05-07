@@ -83,3 +83,5 @@ def test_usage_tracked(vault):
     vault.get("deepseek")
     report = vault.audit_report()
     assert report[0]["use_count"] == 2
+    assert report[0]["ever_used"] is True
+
