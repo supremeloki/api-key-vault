@@ -57,3 +57,4 @@
 2026-05-07T20:34:26 fix off-by-one in chunker
 2026-05-07T21:36:09 cover error branches
 2026-05-08T20:58:36 test streaming backpressure
+2026-05-08T23:10:29 guard against missing header row

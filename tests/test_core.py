@@ -86,3 +86,5 @@ def test_usage_tracked(vault):
     assert report[0]["ever_used"] is True
 
 
+def test_persists_across_instances(tmp_path):
+    path = tmp_path / "persist.json"
