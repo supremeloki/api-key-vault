@@ -89,3 +89,5 @@ def test_usage_tracked(vault):
 def test_persists_across_instances(tmp_path):
     path = tmp_path / "persist.json"
     first = KeyVault(store_path=path, clock=FakeClock())
+    first.set("mistral", "sk-" + "m" * 32)
+    second = KeyVault(store_path=path, clock=FakeClock())
