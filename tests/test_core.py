@@ -91,3 +91,4 @@ def test_persists_across_instances(tmp_path):
     first = KeyVault(store_path=path, clock=FakeClock())
     first.set("mistral", "sk-" + "m" * 32)
     second = KeyVault(store_path=path, clock=FakeClock())
+    assert "mistral" in second.list_services()

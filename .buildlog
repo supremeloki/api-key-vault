@@ -60,3 +60,4 @@
 2026-05-08T23:10:29 guard against missing header row
 2026-05-09T10:51:30 expand unit coverage
 2026-05-09T17:01:50 regression test for parser
+2026-05-10T10:38:30 regression test for parser pt2
