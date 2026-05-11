@@ -92,3 +92,5 @@ def test_persists_across_instances(tmp_path):
     first.set("mistral", "sk-" + "m" * 32)
     second = KeyVault(store_path=path, clock=FakeClock())
     assert "mistral" in second.list_services()
+    audit = second.audit_report()
+    assert audit[0]["masked"] == mask_key("sk-" + "m" * 32)
