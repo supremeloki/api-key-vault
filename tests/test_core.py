@@ -94,3 +94,4 @@ def test_persists_across_instances(tmp_path):
     assert "mistral" in second.list_services()
     audit = second.audit_report()
     assert audit[0]["masked"] == mask_key("sk-" + "m" * 32)
+
