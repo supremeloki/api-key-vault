@@ -63,3 +63,4 @@
 2026-05-10T10:38:30 regression test for parser pt2
 2026-05-11T18:22:00 guard against missing header row pt2
 2026-05-11T21:49:54 guard against missing header row pt2
+2026-05-12T09:54:26 fix off-by-one in chunker pt2
