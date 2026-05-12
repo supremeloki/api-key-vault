@@ -97,3 +97,4 @@ def test_persists_across_instances(tmp_path):
 
 
 def test_verify_fingerprint(vault):
+    real = "sk-" + "v" * 28
