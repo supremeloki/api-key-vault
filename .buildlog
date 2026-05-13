@@ -65,3 +65,4 @@
 2026-05-11T21:49:54 guard against missing header row pt2
 2026-05-12T09:54:26 fix off-by-one in chunker pt2
 2026-05-12T17:27:21 fix flaky ordering in tests pt2
+2026-05-13T18:15:58 fix off-by-one in chunker pt2
