@@ -100,3 +100,4 @@ def test_verify_fingerprint(vault):
     real = "sk-" + "v" * 28
     vault.set("together", real)
     assert vault.verify_fingerprint("together", real)
+    assert not vault.verify_fingerprint("together", "sk-wrong-value-here-1234")
