@@ -68,3 +68,4 @@
 2026-05-13T18:15:58 fix off-by-one in chunker pt2
 2026-05-13T19:32:49 regression test for parser pt2
 2026-05-14T19:06:52 cover error branches pt2
+2026-05-14T22:07:06 expand unit coverage pt2
