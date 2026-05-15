@@ -107,3 +107,5 @@ def test_delete_removes_service(vault):
     vault.set("xai", "sk-" + "x" * 30)
     assert vault.delete("xai") is True
     assert "xai" not in vault.list_services()
+    assert vault.delete("xai") is False
+
