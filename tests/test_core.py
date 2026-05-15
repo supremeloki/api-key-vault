@@ -104,3 +104,5 @@ def test_verify_fingerprint(vault):
 
 
 def test_delete_removes_service(vault):
+    vault.set("xai", "sk-" + "x" * 30)
+    assert vault.delete("xai") is True
