@@ -110,3 +110,5 @@ def test_delete_removes_service(vault):
     assert vault.delete("xai") is False
 
 
+def test_scan_environment_detects_keys(monkeypatch):
+    import os
