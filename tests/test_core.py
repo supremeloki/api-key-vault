@@ -113,3 +113,5 @@ def test_delete_removes_service(vault):
 def test_scan_environment_detects_keys(monkeypatch):
     import os
 
+    os.environ["TESTSCAN_OPENAI_KEY"] = "sk-" + "q" * 30
+    try:
