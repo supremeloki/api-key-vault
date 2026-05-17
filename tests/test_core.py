@@ -112,3 +112,4 @@ def test_delete_removes_service(vault):
 
 def test_scan_environment_detects_keys(monkeypatch):
     import os
+
