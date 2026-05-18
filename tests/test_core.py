@@ -115,3 +115,4 @@ def test_scan_environment_detects_keys(monkeypatch):
 
     os.environ["TESTSCAN_OPENAI_KEY"] = "sk-" + "q" * 30
     try:
+        fresh = KeyVault(store_path=__import__("pathlib").Path(
