@@ -118,3 +118,4 @@ def test_scan_environment_detects_keys(monkeypatch):
         fresh = KeyVault(store_path=__import__("pathlib").Path(
             __import__("tempfile").gettempdir()) / "scan.json", clock=FakeClock())
         found = fresh.scan_environment()
+        assert "testscan-openai" in found
