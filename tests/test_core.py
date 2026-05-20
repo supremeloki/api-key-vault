@@ -119,3 +119,5 @@ def test_scan_environment_detects_keys(monkeypatch):
             __import__("tempfile").gettempdir()) / "scan.json", clock=FakeClock())
         found = fresh.scan_environment()
         assert "testscan-openai" in found
+    finally:
+        del os.environ["TESTSCAN_OPENAI_KEY"]
