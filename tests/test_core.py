@@ -121,3 +121,4 @@ def test_scan_environment_detects_keys(monkeypatch):
         assert "testscan-openai" in found
     finally:
         del os.environ["TESTSCAN_OPENAI_KEY"]
+
