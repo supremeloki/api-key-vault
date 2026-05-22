@@ -122,3 +122,5 @@ def test_scan_environment_detects_keys(monkeypatch):
     finally:
         del os.environ["TESTSCAN_OPENAI_KEY"]
 
+
+def test_looks_like_api_key_patterns():
