@@ -124,3 +124,4 @@ def test_scan_environment_detects_keys(monkeypatch):
 
 
 def test_looks_like_api_key_patterns():
+    assert looks_like_api_key("sk-" + "a" * 25)
