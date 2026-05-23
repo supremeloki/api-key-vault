@@ -127,3 +127,4 @@ def test_looks_like_api_key_patterns():
     assert looks_like_api_key("sk-" + "a" * 25)
     assert looks_like_api_key("ghp_" + "g" * 36)
     assert not looks_like_api_key("not a key at all")
+    assert not looks_like_api_key("")
