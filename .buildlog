@@ -89,3 +89,4 @@
 2026-05-24T11:04:09 add architecture notes pt2
 2026-05-24T14:34:50 refactor pipeline builder
 2026-05-26T10:13:12 final quality pass
+2026-05-26T20:49:33 perf: avoid re-parsing rows
