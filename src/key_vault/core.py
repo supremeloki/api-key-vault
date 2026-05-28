@@ -103,3 +103,80 @@ class KeyVault:
     def set(self, service: str, value: str) -> KeyEntry:
         if not service.strip() or not value.strip():
             raise KeyInvalidError(f"{service!r}: empty service or key")
+        now = self._clock()
+        existing = self._vault_file.entries.get(service, {})
+        entry = KeyEntry(
+            service=service,
+            masked_value=mask_key(value),
+            fingerprint=fingerprint_key(value),
+            stored_at=existing.get("stored_at", now),
+            last_used_at=existing.get("last_used_at"),
+            use_count=existing.get("use_count", 0),
+        )
+        self._vault_file.entries[service] = {
+            "masked_value": entry.masked_value,
+            "fingerprint": entry.fingerprint,
+            "stored_at": entry.stored_at,
+            "last_used_at": entry.last_used_at,
+            "use_count": entry.use_count,
+        }
+        self._secrets[service] = value
+        self._vault_file.save(self._path)
+        return entry
+
+    def get(self, service: str, *, record_usage: bool = True) -> str:
+        secret = self._secrets.get(service)
+        if secret is None:
+            env_name = f"{self._env_prefix}{service.upper().replace('-', '_')}"
+            secret = os.environ.get(env_name)
+        if secret is None:
+            raise KeyNotFoundError(service)
+        if record_usage:
+            data = self._vault_file.entries.setdefault(service, {})
+            data["use_count"] = data.get("use_count", 0) + 1
+            data["last_used_at"] = self._clock()
+            data.setdefault("fingerprint", fingerprint_key(secret))
+            data.setdefault("masked_value", mask_key(secret))
+            data.setdefault("stored_at", self._clock())
+            self._vault_file.save(self._path)
+        return secret
+
+    def verify_fingerprint(self, service: str, candidate: str) -> bool:
+        data = self._vault_file.entries.get(service)
+        if data is None:
+            raise KeyNotFoundError(service)
+        return data["fingerprint"] == fingerprint_key(candidate)
+
+    def delete(self, service: str) -> bool:
+        existed_secret = self._secrets.pop(service, None) is not None
+        existed_entry = self._vault_file.entries.pop(service, None) is not None
+        if existed_entry:
+            self._vault_file.save(self._path)
+        return existed_secret or existed_entry
+
+    def list_services(self) -> tuple[str, ...]:
+        all_services = set(self._vault_file.entries) | set(self._secrets)
+        return tuple(sorted(all_services))
+
+    def audit_report(self) -> list[dict]:
+        report: list[dict] = []
+        for service in sorted(set(self._vault_file.entries)):
+            data = self._vault_file.entries[service]
+            report.append({
+                "service": service,
+                "masked": data.get("masked_value", "?"),
+                "fingerprint": data.get("fingerprint", ""),
+                "use_count": data.get("use_count", 0),
+                "ever_used": data.get("use_count", 0) > 0,
+            })
+        return report
+
+    def scan_environment(self) -> list[str]:
+        discovered: list[str] = []
+        for name in sorted(os.environ):
+            value = os.environ[name]
+            if looks_like_api_key(value):
+                guessed_service = name.lower().replace("_key", "").replace("_", "-")
+                if guessed_service not in self.list_services():
+                    discovered.append(guessed_service)
+        return discovered
